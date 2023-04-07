@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">AiUnion</string>
+    <!--<string name="app_name">AiUnion</string>-->
+    <string name="text_welcome">PASS!</string>
+
+    <string name="illegality_person">Illegal Person</string>
+    <string name="forbid">Forbid</string>
+
+    <string name="TOF_switch">啟用活體辨識</string>
+    <string name="fake_message_switch">顯示FAKE訊息</string>
+    <string name="valid_TOF_distance">活體辨識有效距離(單位：m)</string>
+    <string name="threshold_TOF_Liveness">活體辨識門檻值(0..1)</string>
+    <string name="face_number_is">人臉 = </string>
+    <string name="no_full_face">沒有檢測到人臉</string>
+    <string name="min_face_width">最小人臉寬度 (像素)</string>
+    <string name="max_face_width">最大人臉寬度 (像素)</string>
+    <string name="show_face_frame">顯示人臉外框</string>
+    <string name="face_too_far">人臉過遠，請站近一點</string>
+    <string name="face_too_close">人臉過近，請站遠一點</string>
+    <string name="redundant_threshold">去除重複人臉秒數，0 表示不去重</string>
+    <string name="led_enable">補光燈</string>
+    <string name="dialog_duration">名片卡停留時間(毫秒)</string>
+
+    <string name="title_camera_0">RGB 攝影機</string>
+    <string name="title_camera_1">IR 攝影機</string>
+    <string name="field_camera_facing">攝影機前後鏡頭</string>
+    <string name="option_camera_back">後鏡頭</string>
+    <string name="option_camera_front">前鏡頭</string>
+    <string name="field_display_orientation">螢幕旋轉角度</string>
+    <string name="field_face_orientation">臉部偵測旋轉角度</string>
+    <string name="field_bitmap_orientation">點陣圖旋轉角度</string>
+    <string name="field_need_scale">是否需要縮放</string>
+
+</resources>

@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ContentDescription, UseCompoundDrawables, UselessParent">
+
+    <data class=".SettingViewBinding">
+        <import type="android.view.View" />
+        <variable
+            name="vm"
+            type="com.aiunion.aidesk.viewmodel.MainViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/backgroud_corner"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/edtPsw"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="24dp"
+                    android:ellipsize="end"
+                    android:hint="input password"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberPassword"
+                    android:maxLength="16"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="@={vm.mPsw}"
+                    android:visibility="@{vm.mIsShowPassword ? View.VISIBLE : View.GONE, default=visible}"
+                    tools:visibility="gone" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="24dp"
+                    android:orientation="horizontal"
+                    android:visibility="@{vm.mIsShowPassword ? View.VISIBLE : View.GONE, default=visible}"
+                    tools:visibility="gone">
+
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="@={vm.mIsCheckBasicSetting}"
+                        android:text="一般設定"
+                        android:textSize="16sp"
+                        tools:visibility="gone" />
+
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="@={vm.mIsCheckAdvSetting}"
+                        android:text="進階設定"
+                        android:textSize="16sp"
+                        tools:visibility="gone" />
+
+                </RadioGroup>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:orientation="vertical"
+                    android:visibility="@{vm.mIsInputEnable ? View.VISIBLE : View.GONE, default=gone}"
+                    tools:visibility="visible">
+
+                    <LinearLayout
+                        android:id="@+id/ll_dia"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/ip_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="24dp"
+                        android:ellipsize="end"
+                        android:enabled="@{vm.mIsInputEnable}"
+                        android:hint="IP"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:singleLine="true"
+
+                        android:text="@={vm.mIp}"
+                        android:visibility="gone" />
+
+                    <EditText
+                        android:id="@+id/ipUpload"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="24dp"
+                        android:ellipsize="end"
+                        android:hint="Upload full url"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLength="50"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:visibility="gone" />
+
+                    <EditText
+                        android:id="@+id/edtRecognizeScore"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="24dp"
+                        android:ellipsize="end"
+                        android:enabled="@{vm.mIsInputEnable}"
+                        android:hint="Threshold"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:maxLines="1"
+                        android:singleLine="true"
+
+                        android:text="@={vm.mRecognizeScore}"
+                        android:visibility="gone" />
+
+                    <EditText
+                        android:id="@+id/edtDeviceId"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="24dp"
+                        android:ellipsize="end"
+                        android:enabled="@{vm.mIsInputEnable}"
+                        android:hint="Device ID"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:maxLines="1"
+                        android:singleLine="true"
+
+                        android:text="@={vm.mDeviceId}"
+                        android:visibility="gone" />
+
+                    <EditText
+                        android:id="@+id/edtChannel"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="24dp"
+                        android:ellipsize="end"
+                        android:enabled="@{vm.mIsInputEnable}"
+                        android:hint="Face Lib ID"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:maxLines="1"
+                        android:singleLine="true"
+
+                        android:text="@={vm.mChannel}"
+                        android:visibility="gone" />
+
+                    <EditText
+                        android:id="@+id/edtMinFaceWidth"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="24dp"
+                        android:ellipsize="end"
+                        android:enabled="@{vm.mIsInputEnable}"
+                        android:hint="@string/min_face_width"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:maxLines="1"
+                        android:singleLine="true"
+
+                        android:text="@={vm.mMinFace}" />
+
+                    <EditText
+                        android:id="@+id/edtMaxFaceWidth"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="24dp"
+                        android:ellipsize="end"
+                        android:enabled="@{vm.mIsInputEnable}"
+                        android:hint="@string/max_face_width"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:maxLines="1"
+                        android:singleLine="true"
+
+                        android:text="@={vm.mMaxFace}" />
+
+                    <EditText
+                        android:id="@+id/edtRedundantThreshold"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="24dp"
+                        android:ellipsize="end"
+                        android:enabled="@{vm.mIsInputEnable}"
+                        android:hint="@string/redundant_threshold"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:maxLines="1"
+                        android:singleLine="true"
+
+                        android:text="@={vm.mRedundantThreshold}" />
+
+                    <TextView
+                        android:id="@+id/setExposure"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="26dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="24dp"
+                        android:text="Set Exposure：(0~3)"
+                        android:textColor="@color/dark_grey"
+                        android:textSize="20sp"
+                        android:visibility="gone" />
+
+                    <SeekBar
+                        android:id="@+id/seekbar"
+                        setSeekBarChange="@{vm.mSeekBarChangeListener}"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="24dp"
+                        android:max="3"
+                        android:progress="@{vm.mExposureProgress}" />
+
+                    <Switch
+                        android:id="@+id/swTOF"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginRight="24dp"
+                        android:checked="@={vm.mIsEnableTof}"
+                        android:enabled="@{vm.mIsInputEnable}"
+                        android:switchPadding="40dp"
+                        android:text="@string/TOF_switch" />
+
+                    <Switch
+                        android:id="@+id/swFakeMsg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginRight="24dp"
+                        android:checked="@={vm.mIsEnableFakeMsg}"
+                        android:enabled="@{vm.mIsInputEnable}"
+                        android:switchPadding="40dp"
+                        android:text="@string/fake_message_switch" />
+
+                    <Switch
+                        android:id="@+id/swFaceFrame"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginRight="24dp"
+                        android:checked="@={vm.mIsEnableFaceFrame}"
+                        android:enabled="@{vm.mIsInputEnable}"
+                        android:switchPadding="40dp"
+
+                        android:text="@string/show_face_frame" />
+
+                    <Switch
+                        android:id="@+id/swLed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginRight="24dp"
+                        android:checked="@={vm.mIsEnableLed}"
+                        android:enabled="@{vm.mIsInputEnable}"
+                        android:switchPadding="40dp"
+                        android:text="@string/led_enable" />
+
+                    <EditText
+                        android:id="@+id/dialogDuration"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="24dp"
+                        android:ellipsize="end"
+                        android:enabled="@{vm.mIsInputEnable}"
+                        android:hint="@string/dialog_duration"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="@={vm.mDialogDuration}" />
+
+                    <EditText
+                        android:id="@+id/versionName"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="24dp"
+                        android:ellipsize="end"
+                        android:enabled="false"
+                        android:text="versionName"
+
+                        android:textColor="@color/grey" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/ok_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="24dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_weight="1"
+                        android:onClick="@{(view)->vm.save3Setting(view)}"
+                        android:text="OK" />
+
+
+                    <Button
+                        android:id="@+id/cancel_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="24dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_weight="1"
+                        android:onClick="@{()->vm.cancelSetting()}"
+                        android:text="Cancel" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+</layout>
